@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blog edukasi tentang hewan-hewan yang terancam punah, penyebab ancamannya, dan cara ikut melindungi satwa serta habitatnya." />
+  <meta name="theme-color" content="#123d2b" />
+  <title>Hewan-Hewan yang Terancam Punah | Rimba Kita</title>
+  <style>
+    :root {
+      --forest: #123d2b;
+      --forest-2: #1c563b;
+      --leaf: #3f8f55;
+      --leaf-light: #a8d68a;
+      --mint: #e9f4e4;
+      --cream: #f8fbf4;
+      --paper: #ffffff;
+      --ink: #173326;
+      --muted: #607569;
+      --line: #dce9d9;
+      --gold: #e8c778;
+      --shadow: 0 18px 50px rgba(18, 61, 43, .11);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    img { display: block; width: 100%; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(18, 61, 43, .96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(7, 35, 22, .12);
+    }
+    .nav-wrap {
+      width: min(1160px, calc(100% - 40px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: white;
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: .08em;
+      font-size: 1rem;
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 39px;
+      height: 39px;
+      border-radius: 14px 14px 14px 4px;
+      color: var(--forest);
+      background: var(--leaf-light);
+      font-size: 1.35rem;
+      transform: rotate(-5deg);
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      color: rgba(255,255,255,.82);
+      text-decoration: none;
+      font-size: .91rem;
+      font-weight: 650;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--leaf-light); }
+    .menu-toggle {
+      display: none;
+      border: 1px solid rgba(255,255,255,.25);
+      background: transparent;
+      color: white;
+      border-radius: 12px;
+      padding: 8px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(ellipse at 82% 18%, rgba(168,214,138,.22), transparent 29%),
+        radial-gradient(ellipse at 8% 90%, rgba(63,143,85,.25), transparent 35%),
+        linear-gradient(125deg, #103725 0%, #174c34 55%, #286342 100%);
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 330px;
+      height: 330px;
+      border: 1px solid rgba(207,239,185,.13);
+      border-radius: 4% 96% 6% 94% / 7% 8% 92% 93%;
+      transform: rotate(34deg);
+    }
+    .hero::before { top: -180px; right: -60px; box-shadow: 0 0 0 28px rgba(207,239,185,.035), 0 0 0 58px rgba(207,239,185,.025); }
+    .hero::after { bottom: -245px; left: -90px; transform: rotate(-38deg); }
+    .hero-inner {
+      width: min(1160px, calc(100% - 40px));
+      margin: auto;
+      min-height: 570px;
+      padding: 76px 0 82px;
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      align-items: center;
+      gap: 56px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 20px;
+      color: #c8e9b5;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--leaf-light); }
+    h1 {
+      max-width: 680px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 5.5vw, 5.1rem);
+      line-height: 1.04;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+    h1 span { color: var(--leaf-light); font-style: italic; }
+    .hero-copy {
+      max-width: 570px;
+      margin: 24px 0 30px;
+      color: rgba(255,255,255,.82);
+      font-size: 1.04rem;
+    }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 49px;
+      padding: 0 21px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { color: var(--forest); background: var(--leaf-light); box-shadow: 0 10px 25px rgba(0,0,0,.14); }
+    .btn-primary:hover { background: #b9e69c; }
+    .btn-ghost { color: white; border: 1px solid rgba(255,255,255,.35); }
+
+    .hero-art { position: relative; min-height: 400px; }
+    .hero-photo {
+      position: absolute;
+      overflow: hidden;
+      border: 7px solid rgba(255,255,255,.13);
+      background: #315a3d;
+      box-shadow: 0 26px 65px rgba(0,0,0,.25);
+    }
+    .hero-photo img { height: 100%; object-fit: cover; }
+    .hero-photo-main {
+      width: 70%; height: 330px; right: 5%; top: 22px;
+      border-radius: 46% 46% 23px 23px;
+    }
+    .hero-photo-small {
+      width: 43%; height: 170px; left: 0; bottom: 8px;
+      border-radius: 22px 22px 48% 22px;
+    }
+    .hero-photo-third {
+      width: 31%; height: 120px; right: 0; bottom: -4px;
+      border-radius: 22px 22px 22px 48%;
+    }
+    .hero-note {
+      position: absolute;
+      left: 18%; top: 0;
+      padding: 11px 16px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 14px;
+      background: rgba(11,42,28,.84);
+      color: #e6f5dd;
+      font-size: .78rem;
+      font-weight: 750;
+      box-shadow: 0 10px 24px rgba(0,0,0,.15);
+    }
+    .leaf-deco { position: absolute; color: rgba(190,229,160,.2); font-size: 3.5rem; pointer-events: none; }
+    .leaf-one { left: -10px; top: 48%; transform: rotate(-30deg); }
+    .leaf-two { right: 1%; top: 5%; transform: rotate(35deg); }
+
+    .intro-strip { background: #e5f1df; border-bottom: 1px solid #d8e8d1; }
+    .intro-inner {
+      width: min(1000px, calc(100% - 40px)); margin: auto; padding: 28px 0;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .intro-icon {
+      flex: 0 0 52px; width: 52px; height: 52px; display: grid; place-items: center;
+      border-radius: 17px; background: var(--forest); color: var(--leaf-light); font-size: 1.5rem;
+    }
+    .intro-inner p { margin: 0; color: #385944; font-size: .98rem; }
+    .intro-inner strong { color: var(--forest); }
+
+    .section { width: min(1160px, calc(100% - 40px)); margin: auto; padding: 88px 0; }
+    .section-heading { max-width: 690px; margin: 0 auto 42px; text-align: center; }
+    .section-kicker {
+      margin: 0 0 10px; color: var(--leaf); font-size: .76rem; font-weight: 850;
+      letter-spacing: .15em; text-transform: uppercase;
+    }
+    h2 {
+      margin: 0; color: var(--forest); font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.05rem, 4vw, 3.35rem); line-height: 1.13; letter-spacing: -.035em;
+    }
+    .section-heading > p:last-child { margin: 15px 0 0; color: var(--muted); }
+
+    .animal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .animal-card {
+      overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--paper); box-shadow: 0 9px 25px rgba(22,63,40,.045);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .animal-card:hover { transform: translateY(-7px); box-shadow: var(--shadow); }
+    .animal-image { position: relative; height: 225px; overflow: hidden; background: #d5e5d0; }
+    .animal-image img { height: 100%; object-fit: cover; transition: transform .45s ease; }
+    .animal-card:hover .animal-image img { transform: scale(1.055); }
+    .status {
+      position: absolute; left: 15px; top: 15px; padding: 7px 12px; border-radius: 999px;
+      color: #fff; background: rgba(18,61,43,.9); font-size: .7rem; font-weight: 850;
+      letter-spacing: .04em; text-transform: uppercase; backdrop-filter: blur(6px);
+    }
+    .animal-content { padding: 22px 22px 24px; }
+    .animal-content h3 { margin: 0 0 3px; color: var(--forest); font-family: Georgia, serif; font-size: 1.48rem; line-height: 1.2; }
+    .latin { margin: 0 0 13px; color: #7a8d80; font-family: Georgia, serif; font-size: .91rem; font-style: italic; }
+    .animal-content p:not(.latin) { margin: 0 0 17px; color: var(--muted); font-size: .92rem; }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; color: #2e7849; font-weight: 850; font-size: .87rem; text-decoration: none; }
+    .text-link:hover { color: #174d31; }
+
+    .details-section { position: relative; background: #edf5e9; overflow: hidden; }
+    .details-section::before {
+      content: ""; position: absolute; width: 420px; height: 420px; right: -230px; top: 50px;
+      border: 1px solid #d8e9d1; border-radius: 50%; box-shadow: 0 0 0 35px rgba(216,233,209,.45), 0 0 0 75px rgba(216,233,209,.28);
+    }
+    .details-inner { position: relative; z-index: 1; width: min(1160px, calc(100% - 40px)); margin: auto; padding: 88px 0; }
+    .details-list { display: grid; gap: 24px; }
+    .detail-row {
+      display: grid; grid-template-columns: .78fr 1.22fr; gap: 34px; align-items: center;
+      padding: 22px; border: 1px solid #dce9d7; border-radius: 26px; background: rgba(255,255,255,.88);
+      box-shadow: 0 10px 28px rgba(25,68,42,.04);
+    }
+    .detail-row:nth-child(even) { grid-template-columns: 1.22fr .78fr; }
+    .detail-row:nth-child(even) .detail-photo { order: 2; }
+    .detail-photo { height: 270px; overflow: hidden; border-radius: 19px; background: #d8e7d2; }
+    .detail-photo img { height: 100%; object-fit: cover; }
+    .detail-copy { padding: 8px 15px; }
+    .detail-copy .number { color: #5c9c5b; font-size: .76rem; font-weight: 900; letter-spacing: .14em; }
+    .detail-copy h3 { margin: 7px 0 3px; color: var(--forest); font-family: Georgia, serif; font-size: 1.9rem; line-height: 1.15; }
+    .detail-copy .latin { margin-bottom: 15px; }
+    .detail-copy p { color: var(--muted); margin: 0 0 12px; font-size: .94rem; }
+    .reason {
+      margin-top: 14px; padding: 14px 16px; border-left: 3px solid #6ba66b;
+      border-radius: 0 13px 13px 0; background: #f0f7ec; color: #385943; font-size: .9rem;
+    }
+    .reason strong { color: var(--forest); }
+
+    .threat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+    .threat-card { padding: 27px; border: 1px solid var(--line); border-radius: 22px; background: white; }
+    .threat-icon { display: grid; place-items: center; width: 49px; height: 49px; border-radius: 16px; background: var(--mint); font-size: 1.4rem; }
+    .threat-card h3 { margin: 16px 0 7px; color: var(--forest); font-size: 1.1rem; }
+    .threat-card p { margin: 0; color: var(--muted); font-size: .91rem; }
+
+    .action-band {
+      position: relative; overflow: hidden; margin: 0 auto; width: min(1160px, calc(100% - 40px));
+      padding: 48px 54px; border-radius: 30px; color: white;
+      background: linear-gradient(120deg, #17472f, #2c7147);
+      box-shadow: 0 22px 50px rgba(20,69,42,.17);
+    }
+    .action-band::after { content: "🌿"; position: absolute; right: 40px; bottom: -45px; font-size: 10rem; opacity: .12; transform: rotate(-25deg); }
+    .action-band h2 { position: relative; z-index: 1; max-width: 680px; color: white; font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
+    .action-band p { position: relative; z-index: 1; max-width: 700px; margin: 14px 0 0; color: rgba(255,255,255,.8); }
+    .action-points { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 23px; }
+    .action-points span { padding: 9px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; color: #e7f5df; background: rgba(255,255,255,.08); font-size: .84rem; font-weight: 700; }
+
+    .team-section { padding-top: 92px; padding-bottom: 92px; }
+    .team-card {
+      max-width: 770px; margin: auto; padding: 34px 38px; border: 1px solid var(--line);
+      border-radius: 26px; background: white; box-shadow: var(--shadow);
+    }
+    .team-title { margin: 0 0 21px; color: var(--forest); font-family: Georgia, serif; font-size: 1.65rem; text-align: center; }
+    .team-list { margin: 0; padding: 0; list-style: none; counter-reset: team; }
+    .team-list li {
+      counter-increment: team; display: flex; align-items: center; gap: 15px;
+      padding: 13px 0; border-bottom: 1px solid #edf2e9; color: #3b5745; font-weight: 650;
+    }
+    .team-list li:last-child { border-bottom: 0; }
+    .team-list li::before {
+      content: counter(team, decimal-leading-zero); display: grid; place-items: center; flex: 0 0 35px;
+      width: 35px; height: 35px; border-radius: 12px; color: var(--forest); background: var(--mint);
+      font-size: .75rem; font-weight: 900;
+    }
+    .creator-tag { margin-left: auto; padding: 5px 10px; border-radius: 999px; color: #255e39; background: #e5f3db; font-size: .7rem; font-weight: 850; white-space: nowrap; }
+
+    .sources { padding: 30px 0; background: #e9f2e5; border-top: 1px solid #dce9d7; }
+    .sources-inner { width: min(1000px, calc(100% - 40px)); margin: auto; }
+    .sources h3 { margin: 0 0 10px; color: var(--forest); font-size: .95rem; }
+    .sources p { margin: 0 0 8px; color: #718175; font-size: .8rem; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .source-links a { color: #356b45; font-size: .82rem; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .credits { margin-top: 16px !important; }
+    .credits a { color: #356b45; font-weight: 700; text-underline-offset: 3px; }
+    .site-footer { padding: 22px 20px; color: rgba(255,255,255,.75); background: #103725; text-align: center; font-size: .82rem; }
+    .site-footer strong { color: #c8e9b5; }
+    .back-top {
+      position: fixed; right: 20px; bottom: 20px; z-index: 10; display: grid; place-items: center;
+      width: 45px; height: 45px; border-radius: 50%; color: var(--forest); background: var(--leaf-light);
+      text-decoration: none; font-size: 1.2rem; font-weight: 900; box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 25px; padding-top: 65px; }
+      .hero-art { width: min(600px, 100%); margin: 0 auto; min-height: 360px; }
+      .hero-photo-main { height: 290px; }
+      .animal-grid { grid-template-columns: repeat(2, 1fr); }
+      .detail-row, .detail-row:nth-child(even) { grid-template-columns: .9fr 1.1fr; }
+      .detail-row:nth-child(even) .detail-photo { order: 0; }
+    }
+    @media (max-width: 650px) {
+      .nav-wrap { width: min(100% - 30px, 1160px); min-height: 68px; }
+      .menu-toggle { display: inline-block; }
+      .nav-links {
+        display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 22px 22px;
+        flex-direction: column; align-items: flex-start; gap: 15px; background: #123d2b;
+        border-top: 1px solid rgba(255,255,255,.1);
+      }
+      .nav-links.open { display: flex; }
+      .hero-inner { width: min(100% - 34px, 1160px); min-height: auto; padding: 58px 0 56px; }
+      h1 { font-size: clamp(2.55rem, 12vw, 4rem); }
+      .hero-copy { font-size: .96rem; }
+      .hero-art { min-height: 295px; }
+      .hero-photo-main { width: 72%; height: 235px; right: 2%; }
+      .hero-photo-small { width: 44%; height: 128px; }
+      .hero-photo-third { width: 31%; height: 95px; }
+      .hero-note { left: 9%; font-size: .68rem; }
+      .intro-inner { align-items: flex-start; padding: 22px 0; }
+      .intro-icon { flex-basis: 43px; width: 43px; height: 43px; }
+      .section, .details-inner { width: min(100% - 34px, 1160px); padding: 65px 0; }
+      .section-heading { margin-bottom: 30px; }
+      .animal-grid { grid-template-columns: 1fr; gap: 18px; }
+      .animal-image { height: 230px; }
+      .detail-row, .detail-row:nth-child(even) { grid-template-columns: 1fr; gap: 17px; padding: 14px; }
+      .detail-photo { height: 220px; }
+      .detail-copy { padding: 5px 7px 9px; }
+      .detail-copy h3 { font-size: 1.65rem; }
+      .threat-grid { grid-template-columns: 1fr; gap: 15px; }
+      .action-band { width: min(100% - 34px, 1160px); padding: 34px 25px; border-radius: 23px; }
+      .action-band::after { right: 7px; font-size: 7rem; }
+      .team-section { padding-top: 65px; padding-bottom: 65px; }
+      .team-card { padding: 25px 20px; }
+      .team-list li { font-size: .9rem; gap: 10px; }
+      .creator-tag { font-size: .62rem; padding: 4px 7px; }
+      .back-top { right: 14px; bottom: 14px; width: 41px; height: 41px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Rimba Kita, kembali ke atas">
+        <span class="brand-mark" aria-hidden="true">❧</span>
+        <span>RIMBA KITA</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
+      <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a>
+        <a href="#daftar-hewan">Hewan Terancam</a>
+        <a href="#penyebab">Penyebab</a>
+        <a href="#pelestarian">Pelestarian</a>
+        <a href="#kelompok">Kelompok Kami</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Kenali • Peduli • Lestarikan</p>
+          <h1>Hewan-Hewan yang <span>Terancam Punah</span></h1>
+          <p class="hero-copy">Bumi adalah rumah bagi berbagai makhluk hidup. Namun, beberapa hewan kini semakin sulit ditemukan karena habitatnya rusak, perburuan, dan perubahan lingkungan. Yuk, kenali mereka sebelum terlambat.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#daftar-hewan">Jelajahi Hewan <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#penyebab">Mengapa Terancam?</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Kolase foto satwa yang terancam punah">
+          <span class="leaf-deco leaf-one" aria-hidden="true">❧</span>
+          <span class="leaf-deco leaf-two" aria-hidden="true">❧</span>
+          <div class="hero-photo hero-photo-main">
+            <img src="https://asianrhinos.group/uploads/species/jav-compost-960.webp" alt="Badak jawa di habitat hutan" fetchpriority="high" />
+          </div>
+          <div class="hero-photo hero-photo-small">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sumatran-tiger.jpg?width=900" alt="Harimau sumatra" loading="lazy" />
+          </div>
+          <div class="hero-photo hero-photo-third">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ORANGUTAN%20SUMATRA.jpg?width=700" alt="Orangutan sumatra" loading="lazy" />
+          </div>
+          <div class="hero-note">🌱 Setiap spesies punya peran penting</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-strip" aria-label="Pengantar">
+      <div class="intro-inner">
+        <div class="intro-icon" aria-hidden="true">🌿</div>
+        <p><strong>Alam membutuhkan kita.</strong> Hilangnya satu jenis hewan dapat mengganggu keseimbangan rantai makanan dan ekosistem. Melindungi satwa berarti ikut menjaga kehidupan di bumi.</p>
+      </div>
+    </section>
+
+    <section class="section" id="daftar-hewan">
+      <div class="section-heading">
+        <p class="section-kicker">Kenali para penjaga alam</p>
+        <h2>Siapa Saja yang Terancam?</h2>
+        <p>Berikut beberapa contoh satwa yang menghadapi risiko kepunahan. Sebagian besar hidup di Indonesia dan membutuhkan perlindungan habitat. Label “Kritis” berarti Critically Endangered, sedangkan “Terancam” berarti Endangered.</p>
+      </div>
+      <div class="animal-grid">
+        <article class="animal-card">
+          <div class="animal-image">
+            <img src="https://asianrhinos.group/uploads/species/jav-compost-960.webp" alt="Badak jawa berada di lingkungan hutan" loading="lazy" />
+            <span class="status">Kritis</span>
+          </div>
+          <div class="animal-content">
+            <h3>Badak Jawa</h3>
+            <p class="latin">Rhinoceros sondaicus</p>
+            <p>Badak jawa merupakan salah satu mamalia paling langka di dunia. Seluruh populasi liarnya hanya tersisa di Taman Nasional Ujung Kulon.</p>
+            <a class="text-link" href="#badak">Pelajari penyebabnya <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="animal-card">
+          <div class="animal-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sumatran-tiger.jpg?width=1000" alt="Harimau sumatra di kebun binatang" loading="lazy" />
+            <span class="status">Terancam</span>
+          </div>
+          <div class="animal-content">
+            <h3>Harimau Sumatra</h3>
+            <p class="latin">Panthera tigris sumatrae</p>
+            <p>Harimau sumatra adalah subspesies harimau yang hidup di Pulau Sumatra. Jumlahnya menurun akibat kehilangan hutan dan perburuan.</p>
+            <a class="text-link" href="#harimau">Pelajari penyebabnya <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="animal-card">
+          <div class="animal-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ORANGUTAN%20SUMATRA.jpg?width=1000" alt="Orangutan sumatra di pepohonan" loading="lazy" />
+            <span class="status">Kritis</span>
+          </div>
+          <div class="animal-content">
+            <h3>Orangutan Sumatra</h3>
+            <p class="latin">Pongo abelii</p>
+            <p>Primata berambut jingga ini menghabiskan banyak waktu di pepohonan dan sangat bergantung pada hutan tropis sebagai tempat hidupnya.</p>
+            <a class="text-link" href="#orangutan">Pelajari penyebabnya <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="animal-card">
+          <div class="animal-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SumatranElephant.jpg?width=1000" alt="Gajah sumatra di sungai" loading="lazy" />
+            <span class="status">Kritis</span>
+          </div>
+          <div class="animal-content">
+            <h3>Gajah Sumatra</h3>
+            <p class="latin">Elephas maximus sumatranus</p>
+            <p>Gajah sumatra membantu menyebarkan biji tumbuhan. Akan tetapi, hutan tempat mereka mencari makan semakin menyempit.</p>
+            <a class="text-link" href="#gajah">Pelajari penyebabnya <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="animal-card">
+          <div class="animal-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hawksbill_Turtle.jpg?width=1000" alt="Penyu sisik berenang di laut" loading="lazy" />
+            <span class="status">Kritis</span>
+          </div>
+          <div class="animal-content">
+            <h3>Penyu Sisik</h3>
+            <p class="latin">Eretmochelys imbricata</p>
+            <p>Penyu sisik hidup di perairan tropis dan banyak ditemukan di sekitar terumbu karang. Cangkangnya pernah banyak diburu untuk diperdagangkan.</p>
+            <a class="text-link" href="#penyu">Pelajari penyebabnya <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="details-section" aria-labelledby="detail-title">
+      <div class="details-inner">
+        <div class="section-heading">
+          <p class="section-kicker">Kenali lebih dekat</p>
+          <h2 id="detail-title">Mengapa Mereka Bisa Terancam Punah?</h2>
+          <p>Setiap hewan menghadapi masalah yang berbeda. Berikut penjelasan beberapa penyebab utama yang membuat populasinya terus menurun.</p>
+        </div>
+        <div class="details-list">
+          <article class="detail-row" id="badak">
+            <div class="detail-photo"><img src="https://asianrhinos.group/uploads/species/jav-compost-960.webp" alt="Badak jawa di kawasan hutan Ujung Kulon" loading="lazy" /></div>
+            <div class="detail-copy">
+              <span class="number">01 / MAMALIA</span>
+              <h3>Badak Jawa</h3>
+              <p class="latin">Rhinoceros sondaicus</p>
+              <p>Badak jawa memiliki populasi liar yang sangat kecil dan hanya berada di satu kawasan, yaitu Taman Nasional Ujung Kulon. Karena hanya ada satu populasi, bencana alam atau wabah penyakit di kawasan tersebut dapat berdampak besar bagi kelangsungan seluruh spesies.</p>
+              <div class="reason"><strong>Penyebab utama:</strong> perburuan liar untuk mengambil culanya, habitat yang terbatas, persaingan tumbuhan pakan, serta risiko bencana dan penyakit. Kelompok ahli badak Asia memperkirakan jumlahnya kurang dari 50 ekor pada Februari 2026.</div>
+            </div>
+          </article>
+
+          <article class="detail-row" id="harimau">
+            <div class="detail-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sumatran-tiger.jpg?width=1100" alt="Harimau sumatra" loading="lazy" /></div>
+            <div class="detail-copy">
+              <span class="number">02 / MAMALIA</span>
+              <h3>Harimau Sumatra</h3>
+              <p class="latin">Panthera tigris sumatrae</p>
+              <p>Harimau sumatra membutuhkan wilayah hutan yang luas untuk berburu, mencari pasangan, dan membesarkan anak. Ketika hutan terpecah menjadi bagian-bagian kecil, harimau semakin sulit berpindah dan menemukan mangsa.</p>
+              <div class="reason"><strong>Penyebab utama:</strong> pembukaan hutan untuk perkebunan dan penebangan, perburuan liar, berkurangnya hewan mangsa, serta konflik dengan manusia ketika wilayah hidupnya berdekatan dengan permukiman.</div>
+            </div>
+          </article>
+
+          <article class="detail-row" id="orangutan">
+            <div class="detail-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/ORANGUTAN%20SUMATRA.jpg?width=1100" alt="Orangutan sumatra di habitat pepohonan" loading="lazy" /></div>
+            <div class="detail-copy">
+              <span class="number">03 / MAMALIA</span>
+              <h3>Orangutan Sumatra</h3>
+              <p class="latin">Pongo abelii</p>
+              <p>Orangutan sumatra hidup di hutan dan menggunakan pepohonan untuk mencari buah, berpindah tempat, serta membuat sarang. Mereka berkembang biak dengan lambat sehingga pemulihan populasi membutuhkan waktu panjang.</p>
+              <div class="reason"><strong>Penyebab utama:</strong> hutan dibuka untuk perkebunan dan pembangunan, penebangan serta kebakaran hutan, habitat yang terpecah, dan tindakan manusia yang melukai atau mengambil orangutan dari alam.</div>
+            </div>
+          </article>
+
+          <article class="detail-row" id="gajah">
+            <div class="detail-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/SumatranElephant.jpg?width=1100" alt="Gajah sumatra berada di air" loading="lazy" /></div>
+            <div class="detail-copy">
+              <span class="number">04 / MAMALIA</span>
+              <h3>Gajah Sumatra</h3>
+              <p class="latin">Elephas maximus sumatranus</p>
+              <p>Gajah sumatra memerlukan area luas untuk mencari makanan dan air. Saat hutan berubah menjadi perkebunan atau permukiman, jalur jelajah gajah terputus dan mereka bisa masuk ke lahan pertanian warga.</p>
+              <div class="reason"><strong>Penyebab utama:</strong> hilangnya hutan, konflik manusia dan gajah, serta perburuan untuk diambil gadingnya. Konflik sering terjadi karena ruang hidup satwa semakin dekat dengan kegiatan manusia.</div>
+            </div>
+          </article>
+
+          <article class="detail-row" id="penyu">
+            <div class="detail-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hawksbill_Turtle.jpg?width=1100" alt="Penyu sisik di bawah air" loading="lazy" /></div>
+            <div class="detail-copy">
+              <span class="number">05 / REPTIL LAUT</span>
+              <h3>Penyu Sisik</h3>
+              <p class="latin">Eretmochelys imbricata</p>
+              <p>Penyu sisik memanfaatkan pantai untuk bertelur dan terumbu karang untuk mencari makanan. Perjalanan hidupnya melewati banyak wilayah laut sehingga ancaman dapat datang dari pantai maupun kegiatan di laut.</p>
+              <div class="reason"><strong>Penyebab utama:</strong> perdagangan ilegal cangkang, tertangkap tidak sengaja oleh alat tangkap ikan, serta gangguan pada pantai tempat bertelur dan lingkungan terumbu karang.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="penyebab">
+      <div class="section-heading">
+        <p class="section-kicker">Akar permasalahan</p>
+        <h2>Ancaman yang Sering Terjadi</h2>
+        <p>Banyak spesies menghadapi lebih dari satu ancaman sekaligus. Tiga hal berikut menjadi penyebab penting menurunnya populasi satwa liar.</p>
+      </div>
+      <div class="threat-grid">
+        <article class="threat-card">
+          <div class="threat-icon" aria-hidden="true">🌳</div>
+          <h3>Kerusakan Habitat</h3>
+          <p>Hutan ditebang, lahan dibuka, pantai berubah, dan terumbu karang rusak. Hewan kehilangan tempat tinggal, makanan, serta lokasi berkembang biak.</p>
+        </article>
+        <article class="threat-card">
+          <div class="threat-icon" aria-hidden="true">🐾</div>
+          <h3>Perburuan dan Perdagangan Ilegal</h3>
+          <p>Satwa diburu untuk diambil bagian tubuhnya atau diperdagangkan. Jika terlalu banyak individu hilang, populasi sulit berkembang kembali.</p>
+        </article>
+        <article class="threat-card">
+          <div class="threat-icon" aria-hidden="true">🌊</div>
+          <h3>Pencemaran dan Perubahan Lingkungan</h3>
+          <p>Sampah, polusi, perubahan iklim, dan kegiatan manusia dapat mengganggu ketersediaan makanan, kualitas air, serta tempat berkembang biak.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="action-band" id="pelestarian">
+      <p class="eyebrow">Mulai dari hal sederhana</p>
+      <h2>Melindungi Hewan Berarti Menjaga Masa Depan Bumi.</h2>
+      <p>Kita tidak harus menjadi ahli untuk ikut menjaga alam. Kebiasaan kecil yang dilakukan bersama dapat membantu mengurangi tekanan terhadap lingkungan dan satwa liar.</p>
+      <div class="action-points">
+        <span>🌱 Menanam dan merawat pohon</span>
+        <span>♻️ Mengurangi sampah plastik</span>
+        <span>🚫 Tidak membeli produk satwa liar</span>
+        <span>📚 Menyebarkan edukasi lingkungan</span>
+      </div>
+    </section>
+
+    <section class="section team-section" id="kelompok">
+      <div class="section-heading">
+        <p class="section-kicker">Dibuat dengan semangat peduli alam</p>
+        <h2>Identitas Kelompok</h2>
+        <p>Blog edukasi ini dibuat sebagai bentuk kepedulian dan ajakan untuk mengenal serta melestarikan hewan yang terancam punah.</p>
+      </div>
+      <div class="team-card">
+        <h3 class="team-title">Anggota Kelompok</h3>
+        <ol class="team-list">
+          <li><span>Muhammad Rizki Solihin</span><span class="creator-tag">Pembuat Blog</span></li>
+          <li><span>Evandra Raditya</span></li>
+          <li><span>Reynard Miftah Azkiya</span></li>
+          <li><span>Fathir Khaelan Fajri</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sources" aria-label="Sumber informasi dan kredit foto">
+      <div class="sources-inner">
+        <h3>Sumber informasi</h3>
+        <p>Informasi status dan ancaman satwa dirangkum dari lembaga konservasi. Status konservasi dapat diperbarui sesuai penilaian ilmiah terbaru.</p>
+        <div class="source-links">
+          <a href="https://asianrhinos.group/rhinos/javan/" target="_blank" rel="noopener noreferrer">IUCN SSC Asian Rhino Specialist Group — Badak Jawa</a>
+          <a href="https://science.sandiegozoo.org/species/sumatran-tiger" target="_blank" rel="noopener noreferrer">San Diego Zoo — Harimau Sumatra</a>
+          <a href="https://sumatranorangutan.org/orangutans/conservation-threats/" target="_blank" rel="noopener noreferrer">Sumatran Orangutan Conservation Programme</a>
+          <a href="https://www.worldwildlife.org/species/elephant/asian-elephant/sumatran-elephant/" target="_blank" rel="noopener noreferrer">WWF — Gajah Sumatra</a>
+          <a href="https://www.cms.int/species/eretmochelys-imbricata" target="_blank" rel="noopener noreferrer">CMS — Penyu Sisik</a>
+        </div>
+        <p class="credits"><strong>Kredit foto:</strong> Badak Jawa: Alain Compost / IUCN SSC Asian Rhino Specialist Group. Foto Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Sumatran-tiger.jpg" target="_blank" rel="noopener noreferrer">Harimau Sumatra</a> (Ltshears), <a href="https://commons.wikimedia.org/wiki/File:ORANGUTAN_SUMATRA.jpg" target="_blank" rel="noopener noreferrer">Orangutan Sumatra</a> (Arifinal0109), <a href="https://commons.wikimedia.org/wiki/File:SumatranElephant.jpg" target="_blank" rel="noopener noreferrer">Gajah Sumatra</a> (Chalilalm), dan <a href="https://commons.wikimedia.org/wiki/File:Hawksbill_Turtle.jpg" target="_blank" rel="noopener noreferrer">Penyu Sisik</a> (Hoffryan). Silakan buka halaman sumber untuk melihat ketentuan lisensi tiap foto.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 <strong>Rimba Kita</strong> · Blog edukasi hewan terancam punah · Jaga alam, jaga kehidupan 🌿</p>
+  </footer>
+
+  <a class="back-top" href="#top" aria-label="Kembali ke atas">↑</a>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '✕ Tutup' : '☰ Menu';
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰ Menu';
+      });
+    });
+  </script>
+</body>
+</html>
